@@ -11,7 +11,7 @@
 ```
 [PXFlutterPluginRegister registeWithClass:[LoginView class]];
 ```
-2.自
+
 2.自定义类必须实现PXFlutterPluginViewDelegate
 ```
 #import "LoginView.h"
