@@ -1,15 +1,19 @@
-//项目结构：flutter和ios原生混合项目
-// tips：这种方式开销大能不用就不用
-// 一个简化注册ios插件的类 （flutter加载ios原生view）只需继承PXFlutterPluginView，与flutter通信直接使用提供好的channel即可
+## 项目结构：flutter和ios原生混合项目
+###### tips：这种方式开销大能不用就不用 
+
+#### 一个简化注册ios插件的类 （flutter加载ios原生view）只需继承PXFlutterPluginView，与flutter通信直接使用提供好的channel即可
 
 - ios使用： LoginView : PXFlutterPluginView
 
 1.注册插件 可以放在appdelegate函数中或者其他函数中
 
+
+```
 [PXFlutterPluginRegister registeWithClass:[LoginView class]];
-
+```
+2.自
 2.自定义类必须实现PXFlutterPluginViewDelegate
-
+```
 #import "LoginView.h"
 
 @interface LoginView ()<PXFlutterPluginViewDelegate>
@@ -42,10 +46,10 @@
 }
 
 @end
-
+```
 
 - flutter使用：（建议ios原生处理好逻辑只需回传一个信号到flutter即可）
-
+```
 class _HomePageState extends State<HomePage> {
   final MethodChannel channel = MethodChannel('LoginView_methodChannel');
 
@@ -76,3 +80,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+```
